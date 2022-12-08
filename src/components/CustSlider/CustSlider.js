@@ -1,4 +1,3 @@
-//jil sander custslider.js
 
 require('rc-slider/assets/index.css');
 

@@ -1,5 +1,3 @@
-//janine pfaff ReiseZielSeite.js und ReiseZielSeite.css
-
 import React from "react";
 import ReiseZiel from "../ReiseZiel/ReiseZiel";
 import "./ReiseZielSeite.css";

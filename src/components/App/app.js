@@ -1,4 +1,3 @@
-//laurent hupe (app.css und app.js)
 import React, { Component } from "react";
 import "./App.css";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";

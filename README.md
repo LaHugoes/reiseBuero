@@ -6,7 +6,7 @@ Hier haben wir die React & Moment Dependencies
 #src
 Hier ist der Quellcode
 
-#komponenten
+#components
 Hier haben wir die Components
 
 #App
