@@ -162,6 +162,86 @@ class App extends Component {
                 </div>
             );
         }
+
+        //hier returnen wir mit react den jsx content der suchfunktion + das ReiseZielSeite component an das via props die gefilterten suchdaten übergeben werden
+        return (
+            <div className="App">
+                <div className="App-header">
+                    <h2>Ihr Digitales Reisebüro</h2>
+                </div>
+                <div className="container">
+                    <div className="one-third spalte">
+                        <Tabs onSelect={this.auswahlBearbeiten}>
+                            <TabList>
+                                <Tab>Reise-Suche</Tab>
+                            </TabList>
+
+                            <TabPanel>
+                                <div className="ReiseZiel">
+                                    <form onSubmit={this.formAbschicken}>
+                                        <input
+                                            className="reihe"
+                                            type="text"
+                                            value={this.state.zielLand}
+                                            onChange={this.zielLandBearbeiter}
+                                            placeholder="Ziel-Land"
+                                        />
+                                        <input
+                                            className="reihe"
+                                            type="text"
+                                            value={this.state.zielStadt}
+                                            onChange={this.zielStadtBearbeiter}
+                                            placeholder="Ziel-Stadt"
+                                        />
+                                        <DatePicker
+                                            selected={this.state.startDatum}
+                                            onChange={this.startDatumBearbeiter}
+                                            minDate={moment()}
+                                            maxDate={moment().add(90, "days")}
+                                            placeholderText="Anreise Datum"
+                                        />
+                                        <DatePicker
+                                            selected={this.state.endDate}
+                                            onChange={this.endDatumBearbeiter}
+                                            minDate={moment()}
+                                            maxDate={moment().add(90, "days")}
+                                            placeholderText="Abreise Datum"
+                                        />
+                                        <input
+                                            className="reihe"
+                                            type="text"
+                                            value={this.state.passagierAnzahl}
+                                            onChange={this.passagierAnzahlBearbeiter}
+                                        />
+                                        <input className="reihe" type="submit" value="Suchen" />
+                                    </form>
+                                </div>
+                            </TabPanel>
+                        </Tabs>
+                        <div>
+                            <div className="label">
+                                <label>
+                                    <h5>Preissegment</h5>
+                                </label>
+                                <CustSlider onChange={this.sliderBearbeiter} />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="two-thirds spalte">
+                        <div className="header">
+                            <div className="Item-left">{headerElement}</div>
+                            <div className="Item-right">{startDatum}</div>
+                        </div>
+                        <main>
+                            <ReiseZielSeite
+                                artikel={this.state.artikel}
+                            />
+                        </main>
+                    </div>
+                </div>
+            </div>
+        );
     }
 }
 
+export default App;
